@@ -2,7 +2,11 @@
 Easily get and set custom parameters in `window.location.hash`. I use this myself to store user input for ajax requests where filtering is needed. Using simple default values, you can even implement this as a basic state manager for your app.
 
 ## Usage
-Initialize the library by calling `window.urlhash = new urlHash()` or store it as a different variable. Optionally, you can provide an object as an argument which will be used as defaults. This way, you can hide basic settings like `perpage=10`. 
+To start using urlhash.js, you can simply download the [minified version](https://raw.githubusercontent.com/EastingAndNorthing/urlhash/master/dist/urlhash.min.js) and import it into your scripts or html.
+
+Initialize the library by calling `window.urlhash = new urlHash()` or store it as something you prefer. Optionally, you can provide an object as an argument which will be used as defaults. This way, you can hide basic parameters like `perpage=10` from the URL which will still be available to `.get('perpage')`
+
+## Documentation
 
 The following method descriptions use a Typescript-esque notation to signify the type of any arguments.
 
@@ -21,7 +25,7 @@ Retrieve a single parameter from the URL hash. Similar to `getParams()`, you can
 ## ES6 module
 The ES6 / npm packaged version of this library is a work in progress. I haven't tested this, but you should be able to `import` it like in the example below.
 
-```js
+```javascript
 import urlHash from './dist/urlhash-npm.js';
 const urlhash = new urlHash();
 ```
