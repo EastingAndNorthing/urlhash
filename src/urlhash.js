@@ -63,7 +63,7 @@ urlHash.prototype.get = function( parameter, parse ) {
 
     var param = decodeURIComponent(hashparams[parameter]);
 
-    if (param == '' || typeof param == 'undefined') {
+    if (param == '' || typeof param == 'undefined' || param == 'undefined') {
         param = this.defaults[parameter];
     }
     

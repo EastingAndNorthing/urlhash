@@ -60,7 +60,7 @@ module.exports = class urlHash {
         let hashparams = this.getParams();
         let param = decodeURIComponent(hashparams[parameter]);
 
-        if (param == '' || typeof param == 'undefined') {
+        if (param == '' || typeof param == 'undefined' || param == 'undefined') {
             param = this.defaults[parameter];
         }
 
