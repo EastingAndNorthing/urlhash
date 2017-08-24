@@ -5,16 +5,39 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>URLHash.js</title>
+	<title>urlhash.js</title>
 	<meta name="author" content="Mark Oosting">
-	<meta name="description" content="">
 
-	<!-- <link rel="stylesheet" href="style/style.css"> -->
-    <script src="dist/urlhash.min.js"></script>
+	<script src="dist/urlhash.min.js"></script>
+	<script>window.urlhash = new urlHash({ default: 'hello' });</script>
+	<style>
+		body {
+			text-align: center;
+			font-family: sans-serif;
+			max-width: 250px;
+			margin: auto;
+		}
+		input, button {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0.5em;
+		}
+	</style>
 </head>
 
 <body>
 
+	<h1>urlhash.js</h1>
+	<p><a href="https://github.com/EastingAndNorthing/urlhash">Check out urlhash.js on GitHub</a></p>
+	<p><small>Tip: 'default' is initalized as 'hello'. Try changing and resetting it :)</small></p>
+	
+	<button onclick="alert(JSON.stringify(urlhash.getParams(true), null, 2))">Parse current hash</button><br>
+	<button onclick="alert('default: ' + urlhash.get('default'))">Get a default value</button><br>
+	<br>
+	<input id="key" type="text" placeholder="Key"><br>
+	<input id="value" type="text" placeholder="Value"><br>
+	<button onclick="urlhash.set(document.getElementById('key').value, document.getElementById('value').value)">Set hash</button><br>
+	
 </body>
 
 </html>
