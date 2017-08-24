@@ -33,4 +33,26 @@ urlHash.prototype.getParams = function( parse ) {
 }
 
 
+urlHash.prototype.setParams = function( params ) {
+
+    this.params = params;
+    
+    var str = '';
+
+    for (var key in params) {
+        if (params[key] !== null && params[key] !== this.defaults[key] && params[key] !== '') {
+            if (str !== '') str += '&';
+            var value = encodeURIComponent(params[key]);
+            str += key + '=' + value.replace(new RegExp('%2C', 'g'), ',');
+        }
+    }
+
+    if (str === '') {
+        history.pushState('', document.title, window.location.pathname);
+    } else {
+        window.location.hash = str;
+    }
+}
+
+
 window.urlhash = new urlHash();
