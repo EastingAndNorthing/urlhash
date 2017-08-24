@@ -84,4 +84,4 @@ urlHash.prototype.set = function( parameter, value ) {
     this.setParams(hashparams);
 }
 
-window.urlhash = new urlHash();
+// window.urlhash = new urlHash();
