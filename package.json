@@ -1,0 +1,23 @@
+{
+  "name": "urlhash",
+  "version": "1.0.0",
+  "description": "A minimal javascript library to handle URL hashes.",
+  "main": "urlhash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "uglify": "mkdir -p dist && uglifyjs src/urlhash.js -m -o dist/urlhash.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EastingAndNorthing/urlhash.git"
+  },
+  "author": "Mark Oosting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EastingAndNorthing/urlhash/issues"
+  },
+  "homepage": "https://github.com/EastingAndNorthing/urlhash#readme",
+  "devDependencies": {
+    "uglify-js": "^3.0.28"
+  }
+}

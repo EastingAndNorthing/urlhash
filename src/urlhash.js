@@ -55,4 +55,33 @@ urlHash.prototype.setParams = function( params ) {
 }
 
 
+urlHash.prototype.get = function( parameter, parse ) {
+
+    parse = parse || false;
+    
+    var hashparams = this.getParams();
+
+    var param = decodeURIComponent(hashparams[parameter]);
+
+    if (param == '' || typeof param == 'undefined') {
+        param = this.defaults[parameter];
+    }
+    
+    if(parse) return param.split(',');
+    
+    return param;
+}
+
+
+urlHash.prototype.set = function( parameter, value ) {
+
+    var hashparams = this.getParams();
+
+    if (value !== '' || typeof value !== 'undefined') {
+        hashparams[parameter] = value;
+    }
+
+    this.setParams(hashparams);
+}
+
 window.urlhash = new urlHash();
