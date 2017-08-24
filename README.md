@@ -23,9 +23,9 @@ Set a specific parameter or create one if it does not exist. Supported values ar
 Retrieve a single parameter from the URL hash. Similar to `getParams()`, you can set the `parse` argument to `true` to retrieve regular Javascript arrays from any comma separated values.
 
 ## ES6 module
-The ES6 / npm packaged version of this library is a work in progress. I haven't tested this, but you should be able to `import` it like in the example below.
+The ES6 / npm packaged version of this library is a work in progress. I haven't tested this, but you should be able to `require` or `import` it like in the example below.
 
 ```javascript
-import urlHash from './dist/urlhash-npm.js';
-const urlhash = new urlHash();
+const urlHash = require('urlhash');
+const urlhash = new urlHash({ default: 'hello' });
 ```
