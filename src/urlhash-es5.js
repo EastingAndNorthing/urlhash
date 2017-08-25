@@ -25,7 +25,7 @@ urlHash.prototype.getParams = function( parse ) {
 
         var parts = item.split('=');
 
-        if(parse) {
+        if(parse && typeof parts[1] !== 'undefined') {
             parts[1] = parts[1].split(',');
             if(parts[1].length === 1) parts[1] = parts[1][0];
         }

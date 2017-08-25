@@ -4,8 +4,8 @@
   "description": "A minimal javascript library to handle URL hashes.",
   "main": "dist/urlhash.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "mkdir -p dist && uglifyjs src/urlhash.js -m -o dist/urlhash.min.js"
+    "compile": "mkdir -p dist && babel src/urlhash-es6.js --presets babel-preset-es2015 --out-file dist/urlhash.js",
+    "build": "npm run compile && mkdir -p dist && babel src/urlhash-es6.js --presets babel-preset-es2015 | uglifyjs -m -o dist/urlhash.min.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/EastingAndNorthing/urlhash#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "uglify-js": "^3.0.28"
   }
 }
