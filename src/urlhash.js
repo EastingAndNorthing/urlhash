@@ -1,4 +1,11 @@
-function urlHash( defaults ){
+if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+        exports = module.exports = urlHash;
+    }
+    exports.urlHash = urlHash;
+}
+
+var urlHash = function( defaults ){
 
     this.defaults = defaults || {};
     this.params = this.defaults;
@@ -15,7 +22,7 @@ urlHash.prototype.getParams = function( parse ) {
     parse = parse || false;
 
     var hash = window.location.hash.substr(1);
-    
+
     return hash.split('&').reduce(function(result, item) {
 
         var parts = item.split('=');

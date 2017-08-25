@@ -1,4 +1,4 @@
-module.exports = class urlHash {
+class urlHash {
 
     constructor( defaults = {} ) {
 
@@ -16,7 +16,7 @@ module.exports = class urlHash {
         let hash = window.location.hash.substr(1);
 
         return hash.split('&').reduce((result, item) => {
-
+            
             let parts = item.split('=');
             
             if (parse) {
@@ -82,3 +82,5 @@ module.exports = class urlHash {
         this.setParams(hashparams);
     }
 }
+
+module.exports = urlHash;

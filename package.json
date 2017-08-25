@@ -2,10 +2,10 @@
   "name": "urlhash",
   "version": "1.0.0",
   "description": "A minimal javascript library to handle URL hashes.",
-  "main": "dist/urlhash-pkg.js",
+  "main": "dist/urlhash.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "mkdir -p dist && uglifyjs src/urlhash.js -m -o dist/urlhash.min.js && cp src/urlhash-pkg.js dist/urlhash-pkg.js"
+    "dist": "mkdir -p dist && uglifyjs src/urlhash.js -m -o dist/urlhash.min.js"
   },
   "repository": {
     "type": "git",
