@@ -1,9 +1,7 @@
-if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-        exports = module.exports = urlHash;
-    }
-    exports.urlHash = urlHash;
-}
+try {
+    module.exports = exports = urlHash;
+} catch (e) {}
+
 
 var urlHash = function( defaults ){
 
