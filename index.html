@@ -14,29 +14,54 @@
 		body {
 			text-align: center;
 			font-family: sans-serif;
-			max-width: 250px;
+			max-width: 260px;
 			margin: auto;
+		}
+		h1 a {
+			color: #2864e6;
+			text-decoration: none;
 		}
 		input, button {
 			box-sizing: border-box;
 			width: 100%;
-			padding: 0.5em;
+			padding: 0.8em;
+			margin-bottom: 0.3em;
+			background: #eee;
+			border: none;
+			border-radius: 0.18em;
+		}
+		button {
+			background: #2864e6;
+			color: white;
+			font-weight: bold;
+		}
+		p {
+			font-size: 0.8em;
+		}
+		code {
+			background: #eee;
+			border-radius: 0.18em;
+			padding: 0.15em;
 		}
 	</style>
 </head>
 
 <body>
 
-	<h1>urlhash.js</h1>
-	<p><a href="https://github.com/EastingAndNorthing/urlhash">Check out urlhash.js on GitHub</a></p>
-	<p><small>Tip: 'default' is initalized as 'hello'. Try changing and resetting it :)</small></p>
-	
-	<button onclick="alert(JSON.stringify(urlhash.getParams(true), null, 2))">Parse current hash</button><br>
-	<button onclick="alert('default: ' + urlhash.get('default'))">Get a default value</button><br>
-	<br>
-	<input id="key" type="text" placeholder="Key"><br>
+	<h1><a href="https://github.com/EastingAndNorthing/urlhash">urlhash.js</a></h1>
+	<p>urlhash.js has been initialized as <code>window.urlhash</code>. Try the controls below to set or get values in the URL hash.</p>
+	<p>Tip: 'default' is initalized as 'hello'. It's hidden from the URL, but still accesible through <code>urlhash.get('default')</code>. Try changing and resetting the value.</p>
+
+	<input id="key" type="text" placeholder="Hash key"><br>
 	<input id="value" type="text" placeholder="Value"><br>
-	<button onclick="urlhash.set(document.getElementById('key').value, document.getElementById('value').value)">Set hash</button><br>
+	
+	<button onclick="urlhash.set(document.getElementById('key').value, document.getElementById('value').value)">Set value</button>
+	<button onclick="alert(urlhash.get(document.getElementById('key').value))">Get value</button>
+	<br><br>
+	<button onclick="alert(JSON.stringify(urlhash.getParams(true), null, 2))">Parse current hash</button>
+	<button onclick="alert('default: ' + urlhash.get('default'))">Get the 'default' value</button>
+
+	<p>To really experience the power of urlhash, open the console and try some of the <a href="https://github.com/EastingAndNorthing/urlhash/blob/master/README.md">available methods.</a></p>
 	
 </body>
 

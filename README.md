@@ -1,6 +1,8 @@
 # urlhash.js
 Easily get and set custom parameters in `window.location.hash`. I use this myself to store user input for ajax requests where filtering is needed. Using simple default values, you can even implement this as a basic state manager for your app.
 
+[Try the demo.](https://eastingandnorthing.github.io/urlhash/)
+
 ## Usage
 To start using urlhash.js, you can simply download the [minified version](https://raw.githubusercontent.com/EastingAndNorthing/urlhash/master/dist/urlhash.min.js) and import it into your scripts or html.
 
