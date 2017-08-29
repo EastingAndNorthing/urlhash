@@ -8,7 +8,7 @@
 	<title>urlhash.js</title>
 	<meta name="author" content="Mark Oosting">
 
-	<script src="dist/urlhash.min.js"></script>
+	<script src="dist/urlhash.js"></script>
 	<script>window.urlhash = new urlHash({ default: 'hello' });</script>
 	<style>
 		body {
@@ -57,6 +57,7 @@
 	
 	<button onclick="urlhash.set(document.getElementById('key').value, document.getElementById('value').value)">Set value</button>
 	<button onclick="alert(urlhash.get(document.getElementById('key').value))">Get value</button>
+	<button onclick="urlhash.remove(document.getElementById('key').value, document.getElementById('value').value)">Remove value</button>
 	<br><br>
 	<button onclick="alert(JSON.stringify(urlhash.getParams(true), null, 2))">Parse current hash</button>
 	<button onclick="alert('default: ' + urlhash.get('default'))">Get the 'default' value</button>

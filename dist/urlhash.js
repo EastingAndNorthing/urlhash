@@ -60,6 +60,8 @@ var urlHash = function () {
             } else {
                 window.location.hash = str;
             }
+
+            return true;
         }
     }, {
         key: 'get',
@@ -74,7 +76,7 @@ var urlHash = function () {
                 param = this.defaults[parameter];
             }
 
-            if (parse) return param.split(',');
+            if (parse && typeof param !== 'undefined') return param.split(',');
 
             return param;
         }
@@ -84,11 +86,41 @@ var urlHash = function () {
 
             var hashparams = this.getParams();
 
-            if (value !== '' || typeof value !== 'undefined') {
+            if (typeof value !== 'undefined') {
                 hashparams[parameter] = value;
             }
 
             this.setParams(hashparams);
+
+            return true;
+        }
+    }, {
+        key: 'remove',
+        value: function remove(parameter, value) {
+
+            if (!value) {
+                this.set(parameter, '');
+                return true;
+            }
+
+            var currentValue = urlhash.get(parameter, true) || '';
+
+            var index = currentValue.indexOf(value);
+
+            if (index !== -1) {
+
+                Array.isArray(currentValue) ? currentValue.splice(index, 1) : currentValue = '';
+
+                if (typeof currentValue[0] !== 'undefined') {
+                    this.set(parameter, currentValue);
+                } else {
+                    this.set(parameter, '');
+                }
+
+                return true;
+            }
+
+            return false;
         }
     }]);
 

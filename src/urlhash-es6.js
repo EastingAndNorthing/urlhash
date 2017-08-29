@@ -53,6 +53,8 @@ class urlHash {
         } else {
             window.location.hash = str;
         }
+
+        return true;
     }
 
 
@@ -65,7 +67,7 @@ class urlHash {
             param = this.defaults[parameter];
         }
 
-        if (parse)
+        if (parse && typeof param !== 'undefined')
             return param.split(',');
         
         return param;
@@ -76,11 +78,40 @@ class urlHash {
         
         const hashparams = this.getParams();
         
-        if (value !== '' || typeof value !== 'undefined') {
+        if (typeof value !== 'undefined') {
             hashparams[parameter] = value;
         }
         
         this.setParams(hashparams);
+        
+        return true;
+    }
+
+    remove(parameter, value) {
+
+        if(!value) {
+            this.set(parameter, '');
+            return true;
+        }
+
+        let currentValue = urlhash.get(parameter, true) || '';
+    
+        const index = currentValue.indexOf(value);
+
+        if (index !== -1) {
+
+            Array.isArray(currentValue) ? currentValue.splice(index, 1) : currentValue = '';
+
+            if(typeof currentValue[0] !== 'undefined') {
+                this.set(parameter, currentValue);
+            } else {
+                this.set(parameter, '');
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
 
