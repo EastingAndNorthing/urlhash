@@ -24,6 +24,9 @@ Set a specific parameter or create one if it does not exist. Supported values ar
 ### `.get( parameter: string, parse: boolean = false )`
 Retrieve a single parameter from the URL hash. Similar to `getParams()`, you can set the `parse` argument to `true` to retrieve regular Javascript arrays from any comma separated values.
 
+### `.remove( parameter: string, value: string = undefined )`
+Remove a value from a specified parameter. Without the second argument, this method will remove the entire parameter from the url hash.
+
 ## ES6 module
 The ES6 / npm packaged version of this library is a work in progress. I haven't tested this, but you should be able to `require` or `import` it like in the example below.
 
