@@ -43,7 +43,10 @@ class urlHash {
             if (params[key] !== null && params[key] !== this.defaults[key] && params[key] !== '') {
                 if (str !== '')
                     str += '&';
-                let value = encodeURIComponent(params[key]);
+                let value = '' + params[key];
+                if(decodeURIComponent(value) === value) {
+                    value = encodeURIComponent(params[key]);
+                }
                 str += key + '=' + value.replace(new RegExp('%2C', 'g'), ',');
             }
         }

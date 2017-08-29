@@ -50,7 +50,10 @@ var urlHash = function () {
             for (var key in params) {
                 if (params[key] !== null && params[key] !== this.defaults[key] && params[key] !== '') {
                     if (str !== '') str += '&';
-                    var value = encodeURIComponent(params[key]);
+                    var value = '' + params[key];
+                    if (decodeURIComponent(value) === value) {
+                        value = encodeURIComponent(params[key]);
+                    }
                     str += key + '=' + value.replace(new RegExp('%2C', 'g'), ',');
                 }
             }
